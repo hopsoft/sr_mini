@@ -11,7 +11,7 @@ A minimal Rails app that showcases how to use StimulusReflex.
 
 ## Quick Start
 
-1. `git clone ...`
+1. `git clone https://github.com/hopsoft/sr_mini.git`
 1. `ruby application.rb`
 1. Visit http://localhost:3000 in a browser
 
