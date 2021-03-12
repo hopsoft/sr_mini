@@ -10,9 +10,9 @@ gemfile true do
   gem "pry"
 end
 
+require "rails/all"
 require "rails/command"
 require "rails/commands/server/server_command"
-require "rails/all"
 
 module ApplicationCable; end
 
@@ -28,25 +28,31 @@ class CounterReflex < ApplicationReflex
   def increment
     @count = element.dataset.count.to_i + 1
   end
+
+  def reset
+    @count = 0
+  end
 end
 
 class DemosController < ApplicationController
   def show
+    @count ||= 0
     render inline: <<~HTML
-      <!DOCTYPE html>
       <html>
         <head>
           <title>StimulusReflex Mini Demo</title>
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
           <%= javascript_include_tag "/index.js", type: "module" %>
         </head>
-
         <body>
           <div class="container my-5">
-            <h1>StimulusReflex <small class="text-muted fw-light">Mini Demo</small></h1>
-            <button type="button" class="btn btn-primary" data-reflex="click->CounterReflex#increment" data-count="<%= @count.to_i %>">
-              Increment <span class="badge rounded-pill bg-light text-primary ms-1"><%= @count.to_i %></span>
-            </button>
+            <h1>StimulusReflex <small class="text-muted fw-lighter fs-5">Mini Demo <%= "🤯 It's working!!!" if @count > 0 %></small></h1>
+            <%= tag.span "counter: #{@count}", class: class_names("lead badge rounded-pill", "bg-secondary": @count.zero?, "bg-danger": !@count.zero?) %>
+            <div class="button-group my-3">
+              <%= tag.a "Increment Counter", class: "btn btn-primary", data: { reflex: "click->counter#increment", count: @count } %>
+              <%= tag.a "Reset", class: "btn btn-link", data: { reflex: "click->counter#reset" } %>
+            </div>
+            <%= tag.span "You've incremented the counter #{@count} times.", class: "lead" if @count > 0 %>
           </div>
         </body>
       </html>
@@ -60,8 +66,8 @@ class MiniApp < Rails::Application
   config.action_controller.perform_caching = true
   config.consider_all_requests_local = true
   config.public_file_server.enabled = true
-  config.secret_key_base = "36e8e087e279fe21b533b311c70beff7a1952c11bd121de9c9f86eca1aa3c08c7782344cbc7b2f1fc87ffea64515933fc52baeb29a86e2a1a42ed9578a0a047b"
-  config.secret_token = "b5296f300ede8553606df0d656395bb760b04c31cdbb2df8cc5e8d6ffdcdba77f6c57ae54b51c7fd4874b6894f6290d5e41e172bcbfcd3554a1c45c161071d6c"
+  config.secret_key_base = "cde22ece34fdd96d8c72ab3e5c17ac86"
+  config.secret_token = "bf56dfbbe596131bfca591d1d9ed2021"
   config.session_store :cache_store
 
   Rails.cache = ActiveSupport::Cache::RedisCacheStore.new(url: "redis://localhost:6379/1")
@@ -75,5 +81,5 @@ class MiniApp < Rails::Application
   end
 end
 
-system("yarn && yarn build", exception: true)
+system "yarn && yarn build", exception: true
 Rails::Server.new(app: MiniApp, Host: "0.0.0.0", Port: 3000).start

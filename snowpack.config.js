@@ -5,6 +5,7 @@ module.exports = {
   exclude: [
     '**/*.rb',
     '**/node_modules/**/*',
+    'LICENSE.txt',
     'README.md',
     'package.json',
     'snowpack.config.js',
