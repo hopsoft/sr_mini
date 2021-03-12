@@ -10,7 +10,7 @@ gemfile true do
   gem "pry"
 end
 
-require "rails/all"
+require "action_controller/railtie"
 require "rails/command"
 require "rails/commands/server/server_command"
 
