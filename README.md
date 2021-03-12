@@ -4,20 +4,20 @@
 
 ### The Real Single Page App™
 
-A minimal Rails app that showcases how to use StimulusReflex.
+A minimal [Rails](https://github.com/rails/rails) app that showcases how to use [StimulusReflex](https://github.com/hopsoft/stimulus_reflex).
 
 ## Prerequisites
 
-1. ruby
-1. node
-1. yarn
-1. redis
+1. [ruby](https://www.ruby-lang.org/en/)
+1. [node](https://nodejs.dev)
+1. [yarn](https://classic.yarnpkg.com/lang/en/)
+1. [redis](https://redis.io)
 
 ## Quick Start
 
 1. `git clone https://github.com/hopsoft/sr_mini.git`
 1. `ruby application.rb`
-1. Visit http://localhost:3000 in a browser
+1. visit http://localhost:3000 in a browser
 
 ## Source Code
 
