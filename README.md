@@ -1,4 +1,6 @@
-## SR Mini
+# SR Mini
+
+### The Real Single Page App™
 
 A minimal Rails app that showcases how to use StimulusReflex.
 
