@@ -21,5 +21,5 @@ A minimal [Rails](https://github.com/rails/rails) app that showcases how to use 
 
 ## Source Code
 
-- `./index.js` - a single file with all of the JavaScript
-- `./application.rb` - a single file Rails app
+- [`./index.js`](https://github.com/hopsoft/sr_mini/blob/main/index.js) - a single file with all of the JavaScript
+- [`./application.rb`](https://github.com/hopsoft/sr_mini/blob/main/application.rb) - a single file Rails app
