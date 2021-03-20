@@ -4,7 +4,7 @@
 
 A **single file [Rails](https://github.com/rails/rails) app** that will
 have you running a [StimulusReflex](https://github.com/hopsoft/stimulus_reflex)
-demo in just **2 steps**.
+and [CableReady](https://github.com/hopsoft/cable_ready) demo in just **2 steps**.
 
 ### 🤯 The Real Single Page App™
 
