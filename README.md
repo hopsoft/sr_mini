@@ -11,7 +11,7 @@ demo in just **2 steps**.
 ## Quick Start
 
 1. `git clone https://github.com/hopsoft/sr_mini.git`
-1. `ruby application.rb`
+1. `cd /path/to/sr_mini && ruby application.rb`
 1. ...and, you're up and running a Rails app with StimulusReflex. Now visit http://localhost:3000 in a browser.
 
 ## Prerequisites
