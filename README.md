@@ -2,9 +2,9 @@
 
 # SR Mini
 
-A single file [Rails](https://github.com/rails/rails) app that will
+A **single file [Rails](https://github.com/rails/rails) app** that will
 have you running a [StimulusReflex](https://github.com/hopsoft/stimulus_reflex)
-demo in just 2 steps.
+demo in just **2 steps**.
 
 ### 🤯 The Real Single Page App™
 
