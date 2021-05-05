@@ -81,5 +81,10 @@ class MiniApp < Rails::Application
   end
 end
 
-system "yarn && yarn build", exception: true
+if RUBY_VERSION.to_f > 2.5 
+  system "yarn && yarn build", exception: true
+else
+  system "yarn && yarn build"
+end
+
 Rails::Server.new(app: MiniApp, Host: "0.0.0.0", Port: 3000).start
